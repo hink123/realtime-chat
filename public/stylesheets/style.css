@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+section {
+  height: 50vmin;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+div {
+  padding: 1vmin;
+  display: flex;
+  justify-content: center;
+}
