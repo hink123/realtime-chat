@@ -5,16 +5,24 @@ var message = document.getElementById('message');
 var chatArea = document.querySelector('ul')
 var button = document.getElementById('submit-btn');
 
+socket.on('add-message', function(data) {
+    addMessage(data);
+})
+
 button.addEventListener('click', function() {
-    var el = document.createElement('li');
-    el.innerHTML = `${username.value}: ${message.value}`;
-    console.log(el);
-    chatArea.appendChild(el);
+    socket.emit('add-message', {
+        username: username.value,
+        message: message.value
+    });
     message.value = '';
 });
 
-
-
+function addMessage({username, message}) {
+    var el = document.createElement('li');
+    el.innerHTML = `${username}: ${message}`;
+    console.log(el);
+    chatArea.appendChild(el);
+}
 
 
 
